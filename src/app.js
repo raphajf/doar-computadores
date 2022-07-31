@@ -1,9 +1,9 @@
-const express = require("express");
+const express = require('express');
+const formRouter = require('./routes/form.router.js');
 
 const app = express();
 
-app.get("/", (req, res) => {
-    res.status(200).send({ alive: true });
-});
+app.use(express.json());
+app.use(formRouter);
 
 module.exports = app;
