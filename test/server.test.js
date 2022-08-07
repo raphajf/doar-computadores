@@ -10,6 +10,11 @@ describe('Testes de integração', () => {
             expect(resposta.status).toEqual(200);
             expect(resposta.body).toEqual({ alive: true });
         });
+
+        test('GET em /donation retornando 200', async () => {
+            const resposta = await request(app).get('/donation');
+            expect(resposta.status).toEqual(200);
+        });
     });
 
     describe('Rota POST', () => {
@@ -60,13 +65,22 @@ describe('Testes de integração', () => {
             expect(resposta.body.errorMessage).toBe('Tipo inválido de equipamento');
         });
 
+        test('Responder com erro POST com String Vazia', async () => {
+            const resposta = await request(app)
+                .post('/donation')
+                .send(payloads.missingFieldsPayload);
+            
+            expect(resposta.status).toEqual(400);
+            expect(resposta.body.errorMessage).toBe('Estes campos estão em branco');
+        });
+
         test('Responder com sucesso POST completo', async () => {
             const resposta = await request(app)
                 .post('/donation')
                 .send(payloads.correctPayload);
             
             expect(resposta.status).toEqual(200);
-            expect(resposta.body.success).toBe(true);
+            expect(resposta.body[0].success).toBe(true);
         
         });
     });   

@@ -1,7 +1,7 @@
 const payloadWithoutRequiredFields = {
     name: 'Rafael',
-	email: 'rafael@email.com',
-    phone: '32999999999',
+	email: 'rafael1@email.com',
+    phone: '3291213161',
 	zip: '36085-580',
 	number: 15,
 	neighborhood: 'joquei',
@@ -16,7 +16,7 @@ const payloadWithoutRequiredFields = {
 const payloadInvalidEmail = {
     name: 'Rafael',
 	email: 'rafael@.com',
-    phone: '32999999999',
+    phone: '3291213150',
 	zip: '36085-580',
 	city: 'juiz de fora',
 	state: 'minas gerais',
@@ -34,8 +34,8 @@ const payloadInvalidEmail = {
 
 const payloadWithoutDevices = {
     name: 'Rafael',
-	email: 'rafael@email.com',
-    phone: '32999999999',
+	email: 'rafael2@email.com',
+    phone: '3291213184',
 	zip: '36085-580',
 	city: 'juiz de fora',
 	state: 'minas gerais',
@@ -47,8 +47,8 @@ const payloadWithoutDevices = {
 
 const payloadDeviceCountNoMatch = {
     name: 'Rafael',
-	email: 'rafael@email.com',
-    phone: '32999999999',
+	email: 'rafael3@email.com',
+    phone: '3291213190',
 	zip: '36085-580',
 	city: 'juiz de fora',
 	state: 'minas gerais',
@@ -65,8 +65,8 @@ const payloadDeviceCountNoMatch = {
 
 const invalidTypePayload = {
     name: 'Rafael',
-	email: 'rafael@email.com',
-    phone: '32999999999',
+	email: 'rafael7@email.com',
+    phone: '3291213114',
 	zip: '36085-580',
 	city: 'juiz de fora',
 	state: 'minas gerais',
@@ -82,10 +82,29 @@ const invalidTypePayload = {
     ]
 }
 
+const missingFieldsPayload = {
+    name: 'Rafael',
+	email: 'rafael2@email.com',
+    phone: '32991302144',
+	zip: '',
+	city: 'juiz de fora',
+	state: 'minas gerais',
+	streetAddress: '',
+	number: 15,
+    complement: 'ap 103',
+	neighborhood: '',
+	deviceCount: 3,
+    devices: [
+        {type: 'scanner', condition: 'working'},
+        {type: 'screen', condition: 'notWorking'},
+		{type: 'desktop', condition: 'broken'}
+    ]
+}
+
 const correctPayload = {
     name: 'Rafael',
-	email: 'rafael@email.com',
-    phone: '32999999999',
+	email: 'rafael8@email.com',
+    phone: '3291213103',
 	zip: '36085-580',
 	city: 'juiz de fora',
 	state: 'minas gerais',
@@ -107,5 +126,6 @@ module.exports = {
     payloadWithoutDevices,
     payloadDeviceCountNoMatch,
 	invalidTypePayload,
+	missingFieldsPayload,
     correctPayload
 }
