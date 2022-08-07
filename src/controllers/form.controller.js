@@ -43,7 +43,7 @@ async function receiveForm (req, res, next) {
                 res.status(400).send({error: true, missingFields, errorMessage: 'Estes campos estão em branco'});
             }
 
-        }   else if(form.deviceCount !== form.devices.length) {
+        }   else if(parseInt(form.deviceCount) !== form.devices.length) {
                 res.status(400).send({error:true, errorMessage: `A quantidade de equipamentos (${form.deviceCount}) não está de acordo com as informações de equipamentos enviados (${form.devices.length})`});
         }   else {
             const resForm = await FormService.create(form);
